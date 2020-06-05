@@ -17,11 +17,19 @@ class FlightTrip:
             return passenger.name
 
     def add_passenger_to_flight(self, passenger):
-        self.passenger_list.append(passenger)
+        if self.available_seats == 0:
+            return "Sorry we are fully booked. Choose another flights or wait to see cancellations."
+        else:
+            self.passenger_list.append(passenger)
+            self.available_seats -= 1
 
     def remove_passenger_from_flight(self, passport_number):
         for passenger in self.passenger_list:
             if passenger._passport_no == passport_number:
                 self.passenger_list.remove(passenger)
 
+        self.available_seats += 1
 
+    def flight_attendee_report(self):
+        for passenger in self.passenger_list:
+            return f"Name: {passenger.name}, Passport Number: {passenger._passport_no}"
