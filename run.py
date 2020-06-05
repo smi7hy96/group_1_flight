@@ -16,6 +16,11 @@ flight.add_passenger_to_flight(samir)
 
 print(flight.return_passenger_list())
 
+# flight.remove_passenger_from_flight(122)
+
+print(flight.return_passenger_list())
+
+print(flight.flight_attendee_report())
 
 
 
