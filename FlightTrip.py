@@ -3,7 +3,7 @@ class FlightTrip:
     def __init__(self, flight_number, destination, flight_date, flight_time, seats, available_seats, ticket_price,
                  passenger_list=None):
         if passenger_list is None:
-            passenger_list = []
+            self.passenger_list = []
         self.flight_number = flight_number
         self.destination = destination
         self.flight_date = flight_date
@@ -14,4 +14,14 @@ class FlightTrip:
 
     def return_passenger_list(self):
         for passenger in self.passenger_list:
-            return passenger
+            return passenger.name
+
+    def add_passenger_to_flight(self, passenger):
+        self.passenger_list.append(passenger)
+
+    def remove_passenger_from_flight(self, passport_number):
+        for passenger in self.passenger_list:
+            if passenger._passport_no == passport_number:
+                self.passenger_list.remove(passenger)
+
+
