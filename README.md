@@ -3,5 +3,3 @@
 stefan
 # Samir Was Here
 Mergim
-Ryan
-Welcome to our project
