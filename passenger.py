@@ -14,3 +14,6 @@ class Passenger(People):
             self.passenger_price = 10
         else:
             self.passenger_price = 5
+
+    def get_passport_no(self):
+        return self._passport_no
