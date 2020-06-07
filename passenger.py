@@ -4,8 +4,8 @@ from people import People
 class Passenger(People):
     def __init__(self, name, tax_no, adult, passport_no, d_o_b):
         super().__init__(name, tax_no, adult)
-        self._passport_no = passport_no
-        self._d_o_b = d_o_b
+        self.__passport_no = passport_no
+        self.__d_o_b = d_o_b
         self.passenger_price = None
         self.set_ticket_price()
 
@@ -16,4 +16,4 @@ class Passenger(People):
             self.passenger_price = 5
 
     def get_passport_no(self):
-        return self._passport_no
+        return self.__passport_no

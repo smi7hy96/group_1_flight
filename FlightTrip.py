@@ -20,24 +20,19 @@ class FlightTrip:
             return passenger
 
     def add_to_flight(self, passenger):
-
-
         if passenger.adult == True:
             self.adult_list.append(passenger)
-
         else:
             self.infant_list.append(passenger)
 
     def attendees_list(self):
         self.passenger_list = self.adult_list + self.infant_list
 
-
     def ticket_revenue(self, price):
         total_revenue = 0
         for person in self.passenger_list:
             total_revenue += price.passenger_price
         return total_revenue
-
 
     def add_passenger_to_flight(self, passenger):
         if self.available_seats == 0:
@@ -46,15 +41,14 @@ class FlightTrip:
             self.passenger_list.append(passenger)
             self.available_seats -= 1
 
-
     def remove_passenger(self, passport_number):
         for passenger in self.passenger_list:
-            if passenger._passport_no == passport_number:
+            if passenger.__passport_no == passport_number:
                 self.passenger_list.remove(passenger)
 
         self.available_seats += 1
 
     def flight_attendee_report(self):
         for passenger in self.passenger_list:
-            return f"Name: {passenger.name}, Passport Number: {passenger._passport_no}"
+            return f"Name: {passenger.name}, Passport Number: {passenger.__passport_no}"
 
