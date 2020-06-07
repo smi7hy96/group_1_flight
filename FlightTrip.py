@@ -28,10 +28,10 @@ class FlightTrip:
     def attendees_list(self):
         self.passenger_list = self.adult_list + self.infant_list
 
-    def ticket_revenue(self, price):
+    def ticket_revenue(self):
         total_revenue = 0
         for person in self.passenger_list:
-            total_revenue += price.passenger_price
+            total_revenue += person.passenger_price
         return total_revenue
 
     def add_passenger_to_flight(self, passenger):
