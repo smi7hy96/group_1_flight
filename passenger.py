@@ -17,3 +17,5 @@ class Passenger(People):
 
     def get_passport_no(self):
         return self.__passport_no
+
+

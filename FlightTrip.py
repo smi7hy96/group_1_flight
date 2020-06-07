@@ -25,8 +25,9 @@ class FlightTrip:
         elif passenger.adult:
             self.adult_list.append(passenger)
             self.available_seats -= 1
-        elif not passenger.adult and self.adult_list > self.infant_list:
-            self.infant_list.append(passenger)
+        elif not passenger.adult and self.adult_list <= self.infant_list:
+            return "Sorry, every infant must be accompanied by an adult. One infant per adult."
+
 
     def ticket_revenue(self):
         total_revenue = 0
