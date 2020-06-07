@@ -2,45 +2,45 @@ from passenger import *
 
 class FlightTrip:
 
-    def __init__(self, flight_number, destination, flight_date, flight_time, seats, available_seats):
+    def __init__(self, flight_number, destination, flight_date, flight_time, seats, available_seats,
+                 passenger_list=None):
+        if passenger_list is None:
+            self.passenger_list = []
         self.flight_number = flight_number
         self.destination = destination
         self.flight_date = flight_date
         self.flight_time = flight_time
         self.seats = seats
         self.available_seats = available_seats
-        self.adult_list = []
-        self.infant_list = []
-        self.passenger_list = self.adult_list + self.infant_list
 
     def return_passenger_list(self):
         for passenger in self.passenger_list:
             return passenger
-
-    def add_to_flight(self, passenger):
-        if not passenger.adult and self.available_seats == 0 and self.adult_list > self.infant_list:
-            self.infant_list.append(passenger)
-        elif self.available_seats == 0:
-            return "Sorry we are fully booked. Choose another flights or wait to see cancellations."
-        elif passenger.adult:
-            self.adult_list.append(passenger)
-            self.available_seats -= 1
-        elif not passenger.adult and self.adult_list <= self.infant_list:
-            return "Sorry, every infant must be accompanied by an adult. One infant per adult."
-
+# FOUND A CLEANER WAY // CAN DELETE THIS CODE ----------
+    # def add_to_flight(self, passenger):
+    #     if not passenger.adult and self.available_seats == 0 and self.adult_list > self.infant_list:
+    #         self.infant_list.append(passenger)
+    #     elif self.available_seats == 0:
+    #         return "Sorry we are fully booked. Choose another flights or wait to see cancellations."
+    #     elif passenger.adult:
+    #         self.adult_list.append(passenger)
+    #         self.available_seats -= 1
+    #     elif not passenger.adult and self.adult_list <= self.infant_list:
+    #         return "Sorry, every infant must be accompanied by an adult. One infant per adult."
+# --------------
 
     def ticket_revenue(self):
         total_revenue = 0
         for person in self.passenger_list:
             total_revenue += person.passenger_price
         return total_revenue
-## COMBINED THE TWO ADD_FLIGHT METHODS
-    # def add_passenger_to_flight(self, passenger):
-    #     if self.available_seats == 0:
-    #         return "Sorry we are fully booked. Choose another flights or wait to see cancellations."
-    #     else:
-    #         self.passenger_list.append(passenger)
-    #         self.available_seats -= 1
+
+    def add_passenger_to_flight(self, passenger):
+        if self.available_seats == 0:
+            return "Sorry we are fully booked. Choose another flights or wait to see cancellations."
+        else:
+            self.passenger_list.append(passenger)
+            self.available_seats -= 1
 
     def remove_passenger(self, passport_number):
         for passenger in self.passenger_list:
