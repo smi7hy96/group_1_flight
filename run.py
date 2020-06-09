@@ -3,7 +3,6 @@ from FlightTrip import FlightTrip
 from passenger import Passenger
 from people import People
 
-<<<<<<< HEAD
 plane = Plane("AirSparta",20,20,15,10)
 seats = plane.get_seats()
 flight = FlightTrip(1,"Peru","12/06/2020","2:00PM",20,20)
@@ -15,7 +14,6 @@ flight.add_passenger_to_flight(michael)
 flight.add_passenger_to_flight(samir)
 
 # print(flight.return_passenger_list())
-=======
 
 flight = FlightTrip(1, 'Bora Bora', '01/01/2022', '10:00', 3, 3)
 
