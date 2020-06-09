@@ -14,20 +14,7 @@ class FlightTrip:
         self.available_seats = available_seats
 
     def return_passenger_list(self):
-        for passenger in self.passenger_list:
-            return passenger
-# FOUND A CLEANER WAY // CAN DELETE THIS CODE ----------
-    # def add_to_flight(self, passenger):
-    #     if not passenger.adult and self.available_seats == 0 and self.adult_list > self.infant_list:
-    #         self.infant_list.append(passenger)
-    #     elif self.available_seats == 0:
-    #         return "Sorry we are fully booked. Choose another flights or wait to see cancellations."
-    #     elif passenger.adult:
-    #         self.adult_list.append(passenger)
-    #         self.available_seats -= 1
-    #     elif not passenger.adult and self.adult_list <= self.infant_list:
-    #         return "Sorry, every infant must be accompanied by an adult. One infant per adult."
-# --------------
+        return self.passenger_list
 
     def ticket_revenue(self):
         total_revenue = 0
@@ -35,21 +22,26 @@ class FlightTrip:
             total_revenue += person.passenger_price
         return total_revenue
 
-    def add_passenger_to_flight(self, passenger):
+    def add_passenger(self, passenger):
         if self.available_seats == 0:
             return "Sorry we are fully booked. Choose another flights or wait to see cancellations."
         else:
             self.passenger_list.append(passenger)
             self.available_seats -= 1
+            return f'{passenger.name} added to flight!'
 
     def remove_passenger(self, passport_number):
         for passenger in self.passenger_list:
-            if passenger.__passport_no == passport_number:
+            if passenger.passport_no == passport_number:
                 self.passenger_list.remove(passenger)
-
-        self.available_seats += 1
+                self.available_seats += 1
+                return f'{passenger.name} removed from flight.'
 
     def flight_attendee_report(self):
         for passenger in self.passenger_list:
+
             return f"Name: {passenger.name}, Passport Number: {passenger.get_passport_no()}"
+
+            print(f"Name: {passenger.name}, Passport Number: {passenger.passport_no}")
+
 
