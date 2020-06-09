@@ -51,5 +51,5 @@ class FlightTrip:
 
     def flight_attendee_report(self):
         for passenger in self.passenger_list:
-            return f"Name: {passenger.name}, Passport Number: {passenger.__passport_no}"
+            return f"Name: {passenger.name}, Passport Number: {passenger.get_passport_no()}"
 
