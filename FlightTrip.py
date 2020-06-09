@@ -2,8 +2,8 @@ from passenger import *
 
 class FlightTrip:
 
-    def __init__(self, flight_number, destination, flight_date, flight_time, seats, available_seats,
-                 passenger_list=None):
+    def __init__(self, flight_number: object, destination: object, flight_date: object, flight_time: object, seats: object, available_seats: object,
+                 passenger_list: object = None) -> object:
         if passenger_list is None:
             self.passenger_list = []
         self.flight_number = flight_number
@@ -37,9 +37,14 @@ class FlightTrip:
                 self.available_seats += 1
                 return f'{passenger.name} removed from flight.'
 
-
-
     def flight_attendee_report(self):
         for passenger in self.passenger_list:
+
+            return f"Name: {passenger.name}, Passport Number: {passenger.get_passport_no()}"
+
             print(f"Name: {passenger.name}, Passport Number: {passenger.passport_no}")
+
+    def add_passenger_to_flight(self, michael):
+        pass
+
 
