@@ -1,5 +1,5 @@
 import sys
-from preset_variables import *
+from preset_variables_ryan import *
 
 
 def exit_system():
@@ -260,9 +260,11 @@ def get_all_passengers_in_flight():
     selected_flight = ''
     flight_num = False
     for x in range(1, len(flight_list) + 1):
-        if flight_list[x - 1].available_seats < flight_list[x - 1].seats:
-                print(f'{x}) Flying to {flight_list[x - 1].destination} on {flight_list[x - 1].flight_date}\n')
+        print(flight_list[x - 1].available_seats)
+        print(flight_list[x - 1].seats)
 
+        if flight_list[x - 1].available_seats < flight_list[x - 1].seats:
+            print(f'{x}) Flying to {flight_list[x - 1].destination} on {flight_list[x - 1].flight_date}\n')
         else:
             return "All flights already empty!"
     while not flight_num:
