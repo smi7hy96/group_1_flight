@@ -40,9 +40,11 @@ class FlightTrip:
     def flight_attendee_report(self):
         for passenger in self.passenger_list:
 
-            return f"Name: {passenger.name}, Passport Number: {passenger.get_passport_no()}"
+            if passenger.with_child:
+                print(f"Name: {passenger.name}, Passport Number: {passenger.passport_no} with Child: {passenger.child_name}\n")
+            else:
+                print(f"Name: {passenger.name}, Passport Number: {passenger.passport_no}")
 
-            print(f"Name: {passenger.name}, Passport Number: {passenger.passport_no}")
 
     def add_passenger_to_flight(self, michael):
         pass

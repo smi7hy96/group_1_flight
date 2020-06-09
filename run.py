@@ -41,8 +41,3 @@ flight.flight_attendee_report()
 
 print(flight.ticket_revenue())
 
-
-
-
-
-
