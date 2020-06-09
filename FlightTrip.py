@@ -37,9 +37,10 @@ class FlightTrip:
                 self.available_seats += 1
                 return f'{passenger.name} removed from flight.'
 
-
-
     def flight_attendee_report(self):
         for passenger in self.passenger_list:
-            print(f"Name: {passenger.name}, Passport Number: {passenger.passport_no}")
+            if passenger.with_child:
+                print(f"Name: {passenger.name}, Passport Number: {passenger.passport_no} with Child: {passenger.child_name}\n")
+            else:
+                print(f"Name: {passenger.name}, Passport Number: {passenger.passport_no}")
 

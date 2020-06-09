@@ -12,8 +12,8 @@ class Passenger(People):
         self.__child_passport_no = None
         self.__child_dob = None
         self.set_ticket_price()
-        self.infant_passport()
         self.infant_name()
+        self.infant_passport()
         self.infant_dob()
 
     def set_ticket_price(self):
