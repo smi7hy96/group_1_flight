@@ -1,26 +1,34 @@
 from plane_class import Plane
 from FlightTrip import FlightTrip
 from passenger import Passenger
+from people import People
 
-plane = Plane("AirAfrica",300,50,40,25)
-seats = plane.get_seats()
-flight = FlightTrip(1,"Morocco","07/06/2020","2:00PM", seats, seats,plane.get_adult_price())
 
-print(flight.seats)
+flight = FlightTrip(1, 'Bora Bora', '01/01/2022', '10:00', 3, 3)
 
-samir = Passenger("Samir", "15503", True, 122, "24/08/1999")
+samir = Passenger("Samir", "15503", 122, "24/08/1999")
+stefan = Passenger('Stefan', '123A', 100, '10/12/96')
+ryan = Passenger('Ryan', '2468B', 555, '08/06/20', True)
+mergim = Passenger('Mergim', '101010X', 777, '01/01/2077')
 
-print(samir._passport_no)
 
-flight.add_passenger_to_flight(samir)
+print(flight.add_passenger(samir))
+print(flight.add_passenger(stefan))
+print(flight.add_passenger(ryan))
+print(flight.add_passenger(mergim))
+
+flight.flight_attendee_report()
+print(flight.return_passenger_list())
+
+print(flight.remove_passenger(122))
+
+print(flight.add_passenger(mergim))
+
+flight.flight_attendee_report()
 
 print(flight.return_passenger_list())
 
-# flight.remove_passenger_from_flight(122)
-
-print(flight.return_passenger_list())
-
-print(flight.flight_attendee_report())
+print(flight.ticket_revenue())
 
 
 
